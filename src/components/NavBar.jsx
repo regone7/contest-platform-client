@@ -1,5 +1,6 @@
 
 import { TfiCup } from "react-icons/tfi";
+import { NavLink } from "react-router-dom";
 const NavBar = () => {
     return (
         <div>
@@ -13,31 +14,28 @@ const NavBar = () => {
                             <li><a>Item 1</a></li>
                             <li>
                                 <a>Parent</a>
-                                
+
                             </li>
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    
-                    <h1 className="btn btn-ghost text-2xl -ml-7 lg:-ml-3 text-white"> <TfiCup  /> Innovate <span className="-ml-2 text-orange-500">Contest</span> </h1>
+
+                    <h1 className="btn btn-ghost text-2xl -ml-7 lg:-ml-3 text-white"> <TfiCup /> Innovate <span className="-ml-2 text-orange-500">Contest</span> </h1>
                 </div>
                 <div className="navbar hidden lg:flex lg:ml-">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a></a></li>
                         <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
+                            <NavLink to='/' className={({ isActive }) => isActive ? 'text-gray-900 font-bold  h-9 flex justify-center items-center text-md' : ' text-gray-700 h-9 flex justify-center items-center text-md'}>Home</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/login' className={({ isActive }) => isActive ? 'text-gray-900 font-bold  h-9 flex justify-center items-center text-md' : ' text-gray-700 h-9 flex justify-center items-center text-md'}>LogIn</NavLink>
+                        </li>
+
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    
+
                 </div>
             </div>
         </div>
