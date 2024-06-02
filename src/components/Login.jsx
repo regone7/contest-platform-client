@@ -1,12 +1,54 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEye } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineNavigateNext } from "react-icons/md";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
     const [showPasswords, setShowPasswords] = useState(false)
+
+    const { signInUsers, googleLogin,  setLoading } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handelLoginPg = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password)
+
+        signInUsers(email, password)
+            .then(result => {
+                console.log(result.user)
+                console.log('success')
+                
+                e.target.reset()
+                
+
+            })
+            .catch(error => {
+                console.error(error)
+                
+
+            })
+    }
+    const handelgoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                console.log(result.user)
+                console.log("google success")
+
+                
+                
+
+            })
+            .catch(error => {
+                console.error(error)
+
+            })
+    }
     return (
         <div>
             <div className="hero min-h-screen ">
@@ -14,7 +56,7 @@ const Login = () => {
                     <div className="card shrink-0 lg:w-[450px]  md:w-[350px] shadow-2xl border-2 border-blue-300">
                         <h1 className="text-2xl text-center pt-5 -mb-5 font-bold">Log In Now!</h1>
                         <div className="card-body">
-                            <form >
+                            <form onSubmit={handelLoginPg} >
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -48,13 +90,13 @@ const Login = () => {
 
                         <div className="divider divider-gray-100 px-9">OR Login With </div>
                         <div className="px-9 flex flex-col w-full gap-3 mb-12">
-                            <button  className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
-                            
+                            <button onSubmit={handelgoogleLogin} className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
+
                         </div>
 
                     </div>
                 </div>
-               
+
             </div>
         </div>
     );
