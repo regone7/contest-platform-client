@@ -5,13 +5,16 @@ import { IoMdEye } from "react-icons/io";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosPublic from "../hook/useAxiosPublic";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
     const [showPasswords, setShowPasswords] = useState(false)
 
-    const { signInUsers, googleLogin,  setLoading } = useContext(AuthContext)
-    const location = useLocation()
-    const navigate = useNavigate()
+    const { signInUsers, setLoading } = useContext(AuthContext)
+    
+    // const location = useLocation()
+    // const navigate = useNavigate()
 
     const handelLoginPg = (e) => {
         e.preventDefault();
@@ -23,32 +26,39 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 console.log('success')
-                
+
                 e.target.reset()
-                
 
-            })
-            .catch(error => {
-                console.error(error)
-                
-
-            })
-    }
-    const handelgoogleLogin = () => {
-        googleLogin()
-            .then((result) => {
-                console.log(result.user)
-                console.log("google success")
-
-                
-                
 
             })
             .catch(error => {
                 console.error(error)
 
+
             })
     }
+    // const handelgoogleLogin = () => {
+    //     googleLogin()
+    //         .then((result) => {
+    //             // const userInfo = {
+    //             //     name: result.data?.name,
+    //             //     email: result.data?.email
+    //             // }
+    //             // axiosPublic.post('/users', userInfo)
+    //             //     .then(res => {
+    //             //         console.log(res.data)
+    //             //         console.log("success update")
+
+    //             //     })
+    //             console.log(result.user)
+    //             console.log("google success")
+
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+
+    //         })
+    // }
     return (
         <div>
             <div className="hero min-h-screen ">
@@ -89,10 +99,11 @@ const Login = () => {
                         </div>
 
                         <div className="divider divider-gray-100 px-9">OR Login With </div>
-                        <div className="px-9 flex flex-col w-full gap-3 mb-12">
+                        {/* <div className="px-9 flex flex-col w-full gap-3 mb-12">
                             <button onSubmit={handelgoogleLogin} className="btn btn-outline btn-info "><FcGoogle className="text-3xl" /> Google</button>
 
-                        </div>
+                        </div> */}
+                        <SocialLogin></SocialLogin>
 
                     </div>
                 </div>

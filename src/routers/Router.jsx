@@ -10,6 +10,8 @@ import Dashboard from "../layout/dashboard/Dashboard";
 import MyparticipateContest from "../dashboardElement/userdashboard/MyparticipateContest";
 import Mywinningcontest from "../dashboardElement/userdashboard/Mywinningcontest";
 import Myprofile from "../dashboardElement/userdashboard/Myprofile";
+import ManageUser from "../dashboardElement/admindashboard/ManageUser";
+import ManageContest from "../dashboardElement/admindashboard/ManageContest";
 
 
   export const router = createBrowserRouter([
@@ -46,6 +48,14 @@ import Myprofile from "../dashboardElement/userdashboard/Myprofile";
         {
           path: "/dashboard/myprofile",
           element: <Myprofile></Myprofile>,
+        },
+        {
+          path: "/dashboard/ddmanageuser",
+          element: <ManageUser></ManageUser>,
+        },
+        {
+          path: "/dashboard/ddmanagecontest",
+          element: <ManageContest></ManageContest>,
         },
         
       ],
