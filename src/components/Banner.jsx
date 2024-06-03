@@ -9,7 +9,7 @@ const Banner = () => {
                     <p className="text-center">Contest Creation Platform</p>
                     <div className="mt-12 flex  justify-center items-center">
                         <input type="text" placeholder="Type here" className="input input-bordered input-warning w-50% md:w-full md:max-w-xs  rounded-sm" />
-                        <button className="btn bg-orange-400 hover:bg-orange-500 rounded-sm rounded-r-full ">Search</button>
+                        <button className="btn bg-orange-400 hover:bg-orange-500 rounded-sm rounded-r-full text-white ">Search</button>
                     </div>
                 </div>
             </div>
