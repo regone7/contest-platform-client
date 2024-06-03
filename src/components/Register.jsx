@@ -4,11 +4,12 @@ import { IoMdEye } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../provider/AuthProvider";
+import useAxiosPublic from "../hook/useAxiosPublic";
 
 const Register = () => {
     // const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false)
-
+    const axiosPublic = useAxiosPublic()
     const { creatUser, updateUserProfile, setLoading } = useContext(AuthContext)
 
 
@@ -56,12 +57,22 @@ const Register = () => {
         formState: { errors },
         handleSubmit,
     } = useForm()
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         creatUser(data.email, data.password)
             .then(() => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log("success update")
+                        const userInfo = {
+                            name: data?.name,
+                            email: data?.email
+                        }
+                        axiosPublic.post('/users',userInfo)
+                         .then(res=>{
+                            if(res.data.insertedId){
+                                console.log("success update")
+                            }
+                         })
+                       
 
 
                     })
