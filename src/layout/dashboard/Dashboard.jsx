@@ -7,7 +7,7 @@ import useRole from "../../hook/useRole";
 
 const Dashboard = () => {
     const [role] = useRole()
-    console.log(role)
+    // console.log(role)
     return (
         <div>
             <div className="flex flex-col md:flex-row">
