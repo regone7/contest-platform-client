@@ -1,7 +1,7 @@
 
 import { useContext } from "react";
 import { TfiCup } from "react-icons/tfi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const NavBar = () => {
@@ -62,7 +62,7 @@ const NavBar = () => {
                                     <li>
                                         <p >  Profile Name:{user?.displayName} </p>
                                     </li>
-                                    <li><p>Dashboard</p></li>
+                                    <Link to='/dashboard' ><li><p>Dashboard</p></li></Link>
                                     <li><p onClick={handelLogout}>Logout</p></li>
                                 </ul>
                             </div>
