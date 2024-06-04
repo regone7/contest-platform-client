@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const ManageUser = () => {
@@ -15,11 +16,14 @@ const ManageUser = () => {
         queryFn: async () => {
             const { data } = await axiosPublic.get('/userss')
             return data;
-           
+
         },
     })
     console.log(auser)
     const { name, email } = auser;
+    const handelSave = (_id) => {
+
+    }
     const handleDelete = (_id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -46,10 +50,10 @@ const ManageUser = () => {
 
                                 icon: "success"
                             });
-                            
+
 
                         }
-                        
+
 
                     })
             }
@@ -68,7 +72,6 @@ const ManageUser = () => {
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Block/Unblock</th>
-                                <th>Save</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -77,31 +80,38 @@ const ManageUser = () => {
                             {
                                 auser.map((aauser, index) =>
                                     <tr key={aauser._id}>
+
                                         <th>{index + 1}</th>
                                         <td>{aauser.name}</td>
                                         <td>{aauser.email}</td>
                                         <td>
-                                            <select defaultValue={aauser.role} name="role" className="font-bold" >
+                                            {/* <select  name="role" className="font-bold" >
                                                 <option value="User">User</option>
                                                 <option value="Contest Creator"> Contest Creator</option>
                                                 <option value="Admin">Admin</option>
-                                            </select>
+                                            </select> */}
+                                            <div className="flex flex-col gap-1 p-1">
+                                                <p className="font-bold">{aauser.role}</p>
+                                                <Link to={`/dashboard/roleud/${aauser._id}`} > <button className="btn btn-sm"> Change Role</button></Link>
+                                            </div>
                                         </td>
-                                        {
-                                            aauser.role == 'Admin' ? <td>Admin</td> :
-                                                <td>
-                                                    <select name="blocks"  >
-                                                        <option value="Block">Block</option>
-                                                        <option value="Unblock">Unblock</option>
-                                                    </select>
-                                                </td>
-                                        }
-                                        <td className="font-bold text-blue-300">
-                                            Save
+
+                                        <td>
+                                            {/* <select defaultValue={aauser.blocks} name="blocks"  >
+                                                <option value="Block">Block</option>
+                                                <option value="Unblock">Unblock</option>
+                                            </select> */}
+                                            <div className="flex flex-col gap-1 p-1">
+                                                <p className="font-semibold">{aauser.blocks}</p>
+                                                <Link to={`/dashboard/blockud/${aauser._id}`} > <button className="btn btn-sm"> Change Blocks</button></Link>
+                                            </div>
                                         </td>
+
+
                                         <td>
                                             <button onClick={() => handleDelete(aauser._id)} ><MdDelete className="text-red-600 text-3xl" /></button>
                                         </td>
+
                                     </tr>
                                 )
                             }

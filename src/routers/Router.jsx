@@ -13,6 +13,8 @@ import Myprofile from "../dashboardElement/userdashboard/Myprofile";
 import ManageUser from "../dashboardElement/admindashboard/ManageUser";
 import ManageContest from "../dashboardElement/admindashboard/ManageContest";
 import WelcomeDD from "../dashboardElement/WelcomeDD";
+import ChangeBlocks from './../assets/update/ChangeBlocks';
+import ChangeRole from "../assets/update/ChangeRole";
 
 
   export const router = createBrowserRouter([
@@ -45,6 +47,16 @@ import WelcomeDD from "../dashboardElement/WelcomeDD";
         {
           path: "/dashboard/myparticipatecount",
           element: <MyparticipateContest></MyparticipateContest>,
+        },
+        {
+          path: "/dashboard/roleud/:id",
+          element: <ChangeRole></ChangeRole>,
+          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
+        },
+        {
+          path: "/dashboard/blockud/:id",
+          element: <ChangeBlocks></ChangeBlocks>,
+          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
         },
         {
           path: "/dashboard/mywincontest",
