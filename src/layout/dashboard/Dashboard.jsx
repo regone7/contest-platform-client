@@ -39,11 +39,25 @@ const Dashboard = () => {
                                
                             </>
                         }
+                        {
+                            role === 'Contest Creator' && <>
+                                <NavLink to='/dashboard/addcontest' end className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>
+                                    <li><p >Add Contest</p></li>
+                                </NavLink>
+                                <NavLink to='/dashboard/mycreatedconts' className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>
+                                    <li><p >My Created Contest</p></li>
+                                </NavLink>
+                                <NavLink to='/dashboard/contestsubmit' className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>
+                                    <li><p >Contest Submitted </p></li>
+                                </NavLink>
+                               
+                            </>
+                        }
 
 
-                        <div className="p-9">
-                            <Link to='/' ><li >Home</li></Link>
-                            <Link to='/logout' ><li>Log Out</li></Link>
+                        <div className="p-9 ">
+                            <Link to='/' ><li className="text-gray-700 font-bold" > | Home | </li></Link>
+                            <Link to='/logout' ><li className="text-gray-700 font-bold" >| Log Out | </li></Link>
                             {/* <TbHomeSearch /> */}
                         </div>
 

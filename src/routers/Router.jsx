@@ -15,6 +15,9 @@ import ManageContest from "../dashboardElement/admindashboard/ManageContest";
 import WelcomeDD from "../dashboardElement/WelcomeDD";
 import ChangeBlocks from './../assets/update/ChangeBlocks';
 import ChangeRole from "../assets/update/ChangeRole";
+import AddContest from "../dashboardElement/creatorDashboard/AddContest";
+import MyCreatedConts from "../dashboardElement/creatorDashboard/MyCreatedConts";
+import ContestSubmit from "../dashboardElement/creatorDashboard/ContestSubmit";
 
 
   export const router = createBrowserRouter([
@@ -73,6 +76,18 @@ import ChangeRole from "../assets/update/ChangeRole";
         {
           path: "/dashboard/ddmanagecontest",
           element: <ManageContest></ManageContest>,
+        },
+        {
+          path: "/dashboard/addcontest",
+          element: <AddContest></AddContest>,
+        },
+        {
+          path: "/dashboard/mycreatedconts",
+          element: <MyCreatedConts></MyCreatedConts>,
+        },
+        {
+          path: "/dashboard/contestsubmit",
+          element: <ContestSubmit></ContestSubmit>,
         },
         
       ],
