@@ -7,15 +7,15 @@ import { AuthContext } from '../provider/AuthProvider';
 const useRole = () => {
     const { user, loading } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
-    const { data: role = [], isLoading } = useQuery({
+    const { data: role = [] } = useQuery({
         queryKey: ['role', user?.email],
-        // enabled: !loading && !!user?.email,
+        enabled: !loading && !!user?.email,
         queryFn: async () => {
           const { data } = await axiosPublic.get(`/user/${user?.email}`)
-          return data.role
+          return data.role;
         },
       })
-    return  [role, isLoading];
+    return  [role];
 };
 
 export default useRole;

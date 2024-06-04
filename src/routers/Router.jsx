@@ -12,6 +12,7 @@ import Mywinningcontest from "../dashboardElement/userdashboard/Mywinningcontest
 import Myprofile from "../dashboardElement/userdashboard/Myprofile";
 import ManageUser from "../dashboardElement/admindashboard/ManageUser";
 import ManageContest from "../dashboardElement/admindashboard/ManageContest";
+import WelcomeDD from "../dashboardElement/WelcomeDD";
 
 
   export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ import ManageContest from "../dashboardElement/admindashboard/ManageContest";
       children: [
         {
           path: "/dashboard",
+          element: <WelcomeDD></WelcomeDD>,
+        },
+        {
+          path: "/dashboard/myparticipatecount",
           element: <MyparticipateContest></MyparticipateContest>,
         },
         {

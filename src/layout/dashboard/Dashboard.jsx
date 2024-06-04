@@ -17,7 +17,7 @@ const Dashboard = () => {
 
                         {
                             role === 'User' && <>
-                                <NavLink to='/dashboard' end className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>
+                                <NavLink to='/dashboard/myparticipatecount' end className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>
                                     <li><p >My Participated Contest</p></li>
                                 </NavLink>
                                 <NavLink to='/dashboard/mywincontest' className={({ isActive }) => isActive ? ' font-bold   flex  items-center justify-start text-md text-white' : ' text-gray-700  flex  items-center justify-start text-md font-semibold'}>

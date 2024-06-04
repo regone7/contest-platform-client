@@ -3,7 +3,7 @@
 const MyparticipateContest = () => {
     return (
         <div>
-            hi
+            hinnn
         </div>
     );
 };

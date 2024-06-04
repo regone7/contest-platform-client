@@ -3,21 +3,58 @@ import { AuthContext } from "../../provider/AuthProvider";
 import useAxiosPublic from "../../hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
 
 const ManageUser = () => {
     const { user, loading } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
-    const { data: auser = [], isLoading } = useQuery({
+    const { data: auser = [], refetch } = useQuery({
         queryKey: ['auser'],
         // enabled: !loading && !!user?.email,
         queryFn: async () => {
             const { data } = await axiosPublic.get('/userss')
             return data;
+           
         },
     })
     console.log(auser)
     const { name, email } = auser;
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:7000/userdelete/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        refetch()
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Succesfully  deleted.",
+
+                                icon: "success"
+                            });
+                            
+
+                        }
+                        
+
+                    })
+            }
+        });
+    }
     return (
         <div>
             <div className="p-5">
@@ -30,8 +67,9 @@ const ManageUser = () => {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Delete</th>
                                 <th>Block/Unblock</th>
+                                <th>Save</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,9 +87,6 @@ const ManageUser = () => {
                                                 <option value="Admin">Admin</option>
                                             </select>
                                         </td>
-                                        <td>
-                                            <button><MdDelete className="text-red-600 text-3xl" /></button>
-                                        </td>
                                         {
                                             aauser.role == 'Admin' ? <td>Admin</td> :
                                                 <td>
@@ -61,6 +96,12 @@ const ManageUser = () => {
                                                     </select>
                                                 </td>
                                         }
+                                        <td className="font-bold text-blue-300">
+                                            Save
+                                        </td>
+                                        <td>
+                                            <button onClick={() => handleDelete(aauser._id)} ><MdDelete className="text-red-600 text-3xl" /></button>
+                                        </td>
                                     </tr>
                                 )
                             }

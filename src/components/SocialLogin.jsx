@@ -12,7 +12,8 @@ const SocialLogin = () => {
                  const userInfos = {
                     email: result.user?.email,
                     name: result.user?.displayName,
-                    role: 'User'
+                    role: 'User',
+                    blocks: 'Unblock'
                     
                 }
                 axiosPublic.post('/users', userInfos)
