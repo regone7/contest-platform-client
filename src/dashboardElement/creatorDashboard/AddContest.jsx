@@ -22,6 +22,7 @@ const AddContest = () => {
             photoURL:data.photoURL,
             contest_description:data.contest_description,
             contest_price:data.contest_price,
+            prize_money:data.prize_money,
             text_instruction:data.text_instruction,
             tags:data.tags,
             startDate:startDate,

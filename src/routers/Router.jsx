@@ -18,6 +18,7 @@ import ChangeRole from "../assets/update/ChangeRole";
 import AddContest from "../dashboardElement/creatorDashboard/AddContest";
 import MyCreatedConts from "../dashboardElement/creatorDashboard/MyCreatedConts";
 import ContestSubmit from "../dashboardElement/creatorDashboard/ContestSubmit";
+import UpdateContest from "../updates/UpdateContest";
 
 
   export const router = createBrowserRouter([
@@ -88,6 +89,11 @@ import ContestSubmit from "../dashboardElement/creatorDashboard/ContestSubmit";
         {
           path: "/dashboard/contestsubmit",
           element: <ContestSubmit></ContestSubmit>,
+        },
+        {
+          path: "/dashboard/updatecontest/:id",
+          element: <UpdateContest></UpdateContest>,
+          loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
         },
         
       ],

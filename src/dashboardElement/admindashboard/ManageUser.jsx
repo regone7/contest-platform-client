@@ -21,9 +21,9 @@ const ManageUser = () => {
     })
     console.log(auser)
     const { name, email } = auser;
-    const handelSave = (_id) => {
+    // const handelSave = (_id) => {
 
-    }
+    // }
     const handleDelete = (_id) => {
         Swal.fire({
             title: "Are you sure?",
