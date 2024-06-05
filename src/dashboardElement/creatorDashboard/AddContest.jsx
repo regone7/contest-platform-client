@@ -27,6 +27,7 @@ const AddContest = () => {
             tags:data.tags,
             startDate:startDate,
             conformation:'Pending',
+            comment:'',
             email:user?.email
          }
         // console.log(infoAdd)

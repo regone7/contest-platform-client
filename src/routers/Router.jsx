@@ -19,6 +19,8 @@ import AddContest from "../dashboardElement/creatorDashboard/AddContest";
 import MyCreatedConts from "../dashboardElement/creatorDashboard/MyCreatedConts";
 import ContestSubmit from "../dashboardElement/creatorDashboard/ContestSubmit";
 import UpdateContest from "../updates/UpdateContest";
+import ChangeConform from "../assets/update/ChangeConform";
+import CommentAdmin from "../assets/update/CommentAdmin";
 
 
   export const router = createBrowserRouter([
@@ -53,16 +55,6 @@ import UpdateContest from "../updates/UpdateContest";
           element: <MyparticipateContest></MyparticipateContest>,
         },
         {
-          path: "/dashboard/roleud/:id",
-          element: <ChangeRole></ChangeRole>,
-          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
-        },
-        {
-          path: "/dashboard/blockud/:id",
-          element: <ChangeBlocks></ChangeBlocks>,
-          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
-        },
-        {
           path: "/dashboard/mywincontest",
           element: <Mywinningcontest></Mywinningcontest>,
         },
@@ -75,8 +67,23 @@ import UpdateContest from "../updates/UpdateContest";
           element: <ManageUser></ManageUser>,
         },
         {
+          path: "/dashboard/roleud/:id",
+          element: <ChangeRole></ChangeRole>,
+          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
+        },
+        {
+          path: "/dashboard/blockud/:id",
+          element: <ChangeBlocks></ChangeBlocks>,
+          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
+        },
+        {
           path: "/dashboard/ddmanagecontest",
           element: <ManageContest></ManageContest>,
+        },
+        {
+          path: "/dashboard/conformconst/:id",
+          element: <ChangeConform></ChangeConform>,
+          loader: ({params}) => fetch(`http://localhost:7000/conformss/${params.id}`)
         },
         {
           path: "/dashboard/addcontest",
@@ -93,6 +100,11 @@ import UpdateContest from "../updates/UpdateContest";
         {
           path: "/dashboard/updatecontest/:id",
           element: <UpdateContest></UpdateContest>,
+          loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
+        },
+        {
+          path: "/dashboard/comment/:id",
+          element: <CommentAdmin></CommentAdmin>,
           loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
         },
         

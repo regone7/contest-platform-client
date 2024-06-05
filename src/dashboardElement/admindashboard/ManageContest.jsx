@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hook/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const ManageContest = () => {
@@ -79,20 +80,9 @@ const ManageContest = () => {
                                         <td>{manages.contest_description}</td>
                                         <td>{manages.tags}</td>
                                         <td><button onClick={() => handleDelete(manages._id)} className="btn btn-sm hover:bg-red-500">Delete</button></td>
-                                        <td><button className="btn btn-sm">Confirm</button></td>
+                                        <td><Link to={`/dashboard/conformconst/${manages._id}`}><button className="btn btn-sm">Confirm</button></Link></td>
                                         <td>
-                                            {/* The button to open modal */}
-                                            <a href="#my_modal_8" className="btn btn-sm">Comment</a>
-                                            {/* Put this part before </body> tag */}
-                                            <div className="modal" role="dialog" id="my_modal_8">
-                                                <div className="modal-box">
-                                                    <h3 className="font-bold text-lg">Hello!</h3>
-                                                    <p className="py-4">This modal works with anchor links</p>
-                                                    <div className="modal-action">
-                                                        <a href="#" className="btn">Back</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <Link to={`/dashboard/comment/${manages._id}`}><button className="btn btn-sm">Comment</button></Link>
                                         </td>
                                     </tr>
                                 )
