@@ -19,7 +19,7 @@ const ManageUser = () => {
 
         },
     })
-    console.log(auser)
+    // console.log(auser)
     const { name, email } = auser;
     // const handelSave = (_id) => {
 
@@ -63,7 +63,7 @@ const ManageUser = () => {
         <div>
             <div className="p-5">
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table ">
                         {/* head */}
                         <thead>
                             <tr>
