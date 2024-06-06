@@ -9,7 +9,7 @@ import { useLoaderData } from 'react-router-dom';
 const UpdateContest = () => {
     const loader = useLoaderData()
     // console.log(loader)
-    const{contest_name,photoURL, contest_description,contest_price,prize_money, text_instruction,tags,conformation, email ,comment, _id}=loader
+    const{contest_name,photoURL, contest_description,contest_price,prize_money, text_instruction,tags,conformation, email ,comment, attempt, _id}=loader
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
 
@@ -32,7 +32,8 @@ const UpdateContest = () => {
             startDate:startDate,
             conformation:conformation,
             email:email,
-            comment:comment
+            comment:comment,
+            attempt:parseInt(attempt)
          }
         // console.log(infoAdds)
         // console.log(data)

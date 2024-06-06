@@ -4,11 +4,11 @@ import { useLoaderData } from 'react-router-dom';
 const CommentAdmin = () => {
     const loader = useLoaderData()
     // 
-    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction, _id }= loader
+    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction,  attempt, _id }= loader
     const handelComment= async (e)=>{
         e.preventDefault();
         const comment = e.target.comment.value;
-        const infoConfirm={ conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction, comment }
+        const infoConfirm={ conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction, comment,  attempt }
         console.log(infoConfirm)
 
         try {

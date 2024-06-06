@@ -28,6 +28,7 @@ const AddContest = () => {
             startDate:startDate,
             conformation:'Pending',
             comment:'',
+            attempt:parseInt('0'),
             email:user?.email
          }
         // console.log(infoAdd)

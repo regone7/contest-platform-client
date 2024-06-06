@@ -71,6 +71,7 @@ const MyCreatedConts = () => {
                                 <th>Status</th>
                                 <th>Update</th>
                                 <th>Delete</th>
+                                <th>Comment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,9 +83,12 @@ const MyCreatedConts = () => {
                                         <td>{mysubms?.contest_name}</td>
                                         <td>{mysubms?.tags}</td>
                                         <td>{mysubms?.contest_price}</td>
-                                        <td className={`px-3 py-1 ${mysubms?.conformation ==='Confirm' && 'text-blue-700 font-semibold'} ${mysubms?.conformation ==='Pending' && 'text-red-700 font-semibold'} `} >{mysubms?.conformation}</td>
-                                        <td><Link to={`/dashboard/updatecontest/${mysubms?._id}`} ><button disabled={mysubms?.conformation ==='Confirm'} className="btn btn-sm border-2 border-green-300">Update</button></Link></td>
-                                        <td><button disabled={mysubms?.conformation ==='Confirm'} onClick={() => handleDelete(mysubms?._id)} className="btn btn-sm border-2 border-red-300">Delete</button></td>
+                                        <td className={`px-3 py-1 ${mysubms?.conformation === 'Confirm' && 'text-blue-700 font-semibold'} ${mysubms?.conformation === 'Pending' && 'text-red-700 font-semibold'} `} >{mysubms?.conformation}</td>
+                                        <td><Link to={`/dashboard/updatecontest/${mysubms?._id}`} ><button disabled={mysubms?.conformation === 'Confirm'} className="btn btn-sm border-2 border-green-300">Update</button></Link></td>
+                                        <td><button disabled={mysubms?.conformation === 'Confirm'} onClick={() => handleDelete(mysubms?._id)} className="btn btn-sm border-2 border-red-300">Delete</button></td>
+                                        <td>
+                                            {mysubms?.comment}
+                                        </td>
                                     </tr>
                                 )
                             }

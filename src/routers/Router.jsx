@@ -21,6 +21,7 @@ import ContestSubmit from "../dashboardElement/creatorDashboard/ContestSubmit";
 import UpdateContest from "../updates/UpdateContest";
 import ChangeConform from "../assets/update/ChangeConform";
 import CommentAdmin from "../assets/update/CommentAdmin";
+import AllContest from "../pages/allcontest/AllContest";
 
 
   export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ import CommentAdmin from "../assets/update/CommentAdmin";
         {
           path: "/register",
           element: <Register></Register>,
+        },
+        {
+          path: "/allcontest",
+          element: <AllContest></AllContest>,
         },
       ],
     },

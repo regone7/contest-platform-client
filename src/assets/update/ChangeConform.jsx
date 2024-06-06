@@ -5,11 +5,11 @@ import { useLoaderData } from 'react-router-dom';
 const ChangeConform = () => {
     const loader = useLoaderData()
     // 
-    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, comment, text_instruction, _id }= loader
+    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, comment, text_instruction,  attempt, _id }= loader
     const handelConformation= async (e)=>{
         e.preventDefault();
         const conformation = e.target.conformation.value;
-        const infoConfirm={ conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, comment, text_instruction }
+        const infoConfirm={ conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, comment, text_instruction,  attempt }
         console.log(infoConfirm)
 
         try {
