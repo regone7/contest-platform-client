@@ -22,6 +22,7 @@ import UpdateContest from "../updates/UpdateContest";
 import ChangeConform from "../assets/update/ChangeConform";
 import CommentAdmin from "../assets/update/CommentAdmin";
 import AllContest from "../pages/allcontest/AllContest";
+import AllcontestDiteals from './../pages/ditels/AllcontestDiteals';
 
 
   export const router = createBrowserRouter([
@@ -44,6 +45,11 @@ import AllContest from "../pages/allcontest/AllContest";
         {
           path: "/allcontest",
           element: <AllContest></AllContest>,
+        },
+        {
+          path: "/allcontestditeals/:id",
+          element: <AllcontestDiteals></AllcontestDiteals>,
+          loader: ({params}) => fetch(`http://localhost:7000/diteals/${params.id}`)
         },
       ],
     },

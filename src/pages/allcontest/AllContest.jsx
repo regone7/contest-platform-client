@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hook/useAxiosPublic";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { Link } from "react-router-dom";
 
 const AllContest = () => {
     const axiosPublic = useAxiosPublic()
@@ -71,8 +72,7 @@ const AllContest = () => {
                                                 </div>
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
-
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                    <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,8 +95,7 @@ const AllContest = () => {
                                                 </div>
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
-
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                    <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,8 +118,7 @@ const AllContest = () => {
                                                 </div>
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
-
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                    <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -143,8 +141,7 @@ const AllContest = () => {
                                                 </div>
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
-
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +165,7 @@ const AllContest = () => {
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
 
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -192,7 +189,7 @@ const AllContest = () => {
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
 
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -216,7 +213,7 @@ const AllContest = () => {
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
 
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -240,7 +237,7 @@ const AllContest = () => {
                                                 <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
                                                 <div className="card-actions justify-end">
 
-                                                    <button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button>
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
                                                 </div>
                                             </div>
                                         </div>
