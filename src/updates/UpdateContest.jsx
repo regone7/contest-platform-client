@@ -4,7 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const UpdateContest = () => {
     const loader = useLoaderData()
@@ -12,6 +13,7 @@ const UpdateContest = () => {
     const { contest_name, photoURL, contest_description, contest_price, prize_money, text_instruction, tags, conformation, email, comment, attempt, _id } = loader
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    const navigate = useNavigate()
 
     const {
         register,
@@ -44,9 +46,12 @@ const UpdateContest = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
+            navigate('/dashboard/mycreatedconts');
 
         } catch (err) {
             console.log(err)
+            toast.error(' error')
 
         }
     }
@@ -152,6 +157,7 @@ const UpdateContest = () => {
 
 
                 </div>
+                <Toaster position="top-center" />
             </div>
         </div>
     );

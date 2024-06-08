@@ -1,13 +1,14 @@
 import { useContext, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const PaymentApply = () => {
     const loaderp = useLoaderData()
     // console.log(loaderp)
+    const navigate = useNavigate()
     const { contest_name, photoURL, contest_description, contest_price, prize_money, text_instruction, tags, conformation, email, comment, attempt,startDate, _id } = loaderp
     const { user } = useContext(AuthContext)
     
@@ -46,7 +47,8 @@ const PaymentApply = () => {
             ur_email:user?.email,
             ur_name:user?.displayName,
             ur_photo:user?.photoURL,
-            urattempt_id:_id
+            urattempt_id:_id,
+            ur_payment:'Completed Payment'
         }
         // console.log(infoAddss)
         // console.log(data)
@@ -57,9 +59,12 @@ const PaymentApply = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
+            
 
         } catch (err) {
             console.log(err)
+            toast.error(' error')
 
         }
 
@@ -73,10 +78,10 @@ const PaymentApply = () => {
 
                         <h2 className="mt-2">Payment Information: At This moment only <span className="text-green-400">bKash/Rocket/Nagad</span>  Mobile banking Accept.</h2>
                         <p className="mt-1 font-semibold">Payment Number: <span className="text-orange-400"> +880 1795552887</span> </p>
-                        <p className="mt-1">Amount to Pay:</p>
-                        <p className="mt-1"> Winner Prize Money:</p>
-                        <h1 className="mt-3">Perticipate Contest Name: </h1>
-                        <p className="mt-1">Description:</p>
+                        <p className="mt-1">Amount to Pay: {contest_price} </p>
+                        <p className="mt-1"> Winner Prize Money: {prize_money} </p>
+                        <h1 className="mt-3">Perticipate Contest Name: {contest_name} </h1>
+                        <p className="mt-1">Description: {contest_description} </p>
                     </div>
 
 
@@ -126,6 +131,7 @@ const PaymentApply = () => {
                     </form>
                 </div>
             </div>
+            <Toaster position="top-center" />
         </div>
     );
 };

@@ -4,10 +4,13 @@ import { useForm } from "react-hook-form"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 const AddContest = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    const navigate = useNavigate()
 
     const {
         register,
@@ -40,9 +43,11 @@ const AddContest = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
 
         } catch (err) {
             console.log(err)
+            toast.error(' error')
 
         }
     }
@@ -128,7 +133,7 @@ const AddContest = () => {
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label">
-                                        <span className="label-text">Seat To Attempted</span>
+                                        <span className="label-text"> Attempt Start</span>
                                     </label>
                                     <input type="text" {...register("attempt", { required: true })} name="attempt" placeholder="attempt" className="h-12 p-3 input input-bordered" required />
                                     {errors.attempt && <span className="text-red-500">This field is required</span>}
@@ -148,6 +153,7 @@ const AddContest = () => {
 
 
             </div>
+            <Toaster position="top-center" />
         </div>
     );
 };
