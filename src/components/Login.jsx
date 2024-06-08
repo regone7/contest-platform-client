@@ -7,14 +7,15 @@ import { MdOutlineNavigateNext } from "react-icons/md";
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosPublic from "../hook/useAxiosPublic";
 import SocialLogin from "./SocialLogin";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const [showPasswords, setShowPasswords] = useState(false)
 
     const { signInUsers, setLoading } = useContext(AuthContext)
     
-    // const location = useLocation()
-    // const navigate = useNavigate()
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handelLoginPg = (e) => {
         e.preventDefault();
@@ -26,14 +27,16 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 console.log('success')
-
+                toast.success(' Successfuly login')
+                navigate(location?.state ? location.state : '/');
+                setLoading(false)
                 e.target.reset()
 
 
             })
             .catch(error => {
                 console.error(error)
-
+                toast.error(' error')
 
             })
     }
@@ -109,6 +112,7 @@ const Login = () => {
                 </div>
 
             </div>
+            <Toaster position="top-center" />
         </div>
     );
 };

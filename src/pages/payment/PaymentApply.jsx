@@ -107,7 +107,7 @@ const PaymentApply = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Write Contest Answer</span>
+                                <span className="label-text">Write Contest Answer: Drive or Any Link</span>
                             </label>
                             <textarea  {...register("contest_answer", { required: true })} name="contest_answer" placeholder="Answer" className=" h-20 p-3 input input-bordered" required ></textarea>
                             {errors.contest_answer && <span className="text-red-500">This field is required</span>}

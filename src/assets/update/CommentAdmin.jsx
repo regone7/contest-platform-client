@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { useLoaderData } from 'react-router-dom';
-
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 const CommentAdmin = () => {
     const loader = useLoaderData()
     // 
-    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction,  attempt, _id }= loader
+    const navigate = useNavigate()
+    const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, text_instruction,  attempt, comment, _id }= loader
     const handelComment= async (e)=>{
         e.preventDefault();
         const comment = e.target.comment.value;
@@ -18,9 +19,12 @@ const CommentAdmin = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
+            navigate('/dashboard/ddmanagecontest');
             
           } catch (err) {
             console.log(err)
+            toast.error(' error')
             
           }
     }
@@ -37,7 +41,7 @@ const CommentAdmin = () => {
                                     <label className="label">
                                         <span className="label-text">Comment</span>
                                     </label>
-                                    <textarea name='comment'  placeholder='comment' className='input h-32 border-2 border-gray-200'></textarea>
+                                    <textarea defaultValue={comment} name='comment'  placeholder='comment' className='input h-32 border-2 border-gray-200'></textarea>
                                 </div>
 
 
@@ -52,7 +56,7 @@ const CommentAdmin = () => {
 
                     </div>
                 </div>
-                {/* <Toaster position="top-center" /> */}
+                <Toaster position="top-center" />
 
             </div>
         </div>

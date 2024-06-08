@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
-
+import { useLoaderData, useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ChangeBlocks = () => {
     const loader = useLoaderData()
-    console.log(loader)
+    // console.log(loader)
+    const navigate = useNavigate()
     const { name, email, blocks, role , _id } = loader;
     const handelBlocks= async (e)=>{
         e.preventDefault();
@@ -19,9 +20,12 @@ const ChangeBlocks = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
+            navigate('/dashboard/ddmanageuser');
             
           } catch (err) {
             console.log(err)
+            toast.error(' error')
             
           }
     }
@@ -57,7 +61,7 @@ const ChangeBlocks = () => {
 
                     </div>
                 </div>
-                {/* <Toaster position="top-center" /> */}
+                <Toaster position="top-center" />
 
             </div>
         </div>

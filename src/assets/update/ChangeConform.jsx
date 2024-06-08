@@ -1,10 +1,12 @@
 
 import axios from 'axios';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ChangeConform = () => {
     const loader = useLoaderData()
     // 
+    const navigate = useNavigate()
     const {conformation, contest_name, contest_price, email, photoURL, prize_money, startDate, tags, comment, text_instruction,  attempt, _id }= loader
     const handelConformation= async (e)=>{
         e.preventDefault();
@@ -19,9 +21,12 @@ const ChangeConform = () => {
             )
             console.log(data)
             console.log('success')
+            toast.success(' Success ')
+            navigate('/dashboard/ddmanagecontest');
             
           } catch (err) {
             console.log(err)
+            toast.error(' error')
             
           }
     }
@@ -56,7 +61,7 @@ const ChangeConform = () => {
 
                     </div>
                 </div>
-                {/* <Toaster position="top-center" /> */}
+                <Toaster position="top-center" />
 
             </div>
         </div>

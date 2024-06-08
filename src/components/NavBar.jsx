@@ -1,10 +1,11 @@
 
 import { useContext, useEffect, useState } from "react";
 import { TfiCup } from "react-icons/tfi";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-
+import toast, { Toaster } from 'react-hot-toast';
 const NavBar = () => {
+    const navigate = useNavigate()
     const [theme, setTheme] = useState('light')
     const handelToggle = (e) => {
         if (e.target.checked) {
@@ -25,10 +26,13 @@ const NavBar = () => {
         signOutUser()
             .then(() => {
                 console.log("sign out")
+                toast.success(' Successfuly logout')
+                navigate(location?.state ? location.state : '/');
 
             })
             .catch(error => {
                 console.error(error);
+                toast.error(' error')
             })
     }
     return (
@@ -98,6 +102,7 @@ const NavBar = () => {
                     }
                 </div>
             </div>
+            <Toaster position="top-center" />
         </div>
     );
 };

@@ -1,33 +1,37 @@
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
-
+import { useLoaderData, useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 const ChangeRole = () => {
     const loader = useLoaderData()
+    const navigate = useNavigate()
     console.log(loader)
-    const { name, email, blocks, role , _id } = loader;
-    const handelRole= async (e)=>{
+    const { name, email, blocks, role, _id } = loader;
+    const handelRole = async (e) => {
         e.preventDefault();
         const role = e.target.role.value;
-        const infoRole={ name, email, blocks, role }
+        const infoRole = { name, email, blocks, role }
         console.log(infoRole)
 
         try {
             const { data } = await axios.put(
-              `http://localhost:7000/userupds/${_id}`,
-              infoRole
+                `http://localhost:7000/userupds/${_id}`,
+                infoRole
             )
             console.log(data)
             console.log('success')
-            
-          } catch (err) {
+            toast.success(' Success ')
+            navigate('/dashboard/ddmanageuser');
+
+        } catch (err) {
             console.log(err)
-            
-          }
+            toast.error(' error')
+
+        }
     }
     return (
         <div>
-           
+
             <div className="hero min-h-screen  text-gray-700">
                 <div className="hero-content  ">
 
@@ -58,7 +62,7 @@ const ChangeRole = () => {
 
                     </div>
                 </div>
-                {/* <Toaster position="top-center" /> */}
+                <Toaster position="top-center" />
 
             </div>
         </div>
