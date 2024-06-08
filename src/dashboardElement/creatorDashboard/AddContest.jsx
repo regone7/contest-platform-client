@@ -16,35 +16,35 @@ const AddContest = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        
-        const infoAdd={ 
-            contest_name:data.contest_name,
-            photoURL:data.photoURL,
-            contest_description:data.contest_description,
-            contest_price:data.contest_price,
-            prize_money:data.prize_money,
-            text_instruction:data.text_instruction,
-            tags:data.tags,
-            startDate:startDate,
-            conformation:'Pending',
-            comment:'',
-            attempt:parseInt('0'),
-            email:user?.email
-         }
+
+        const infoAdd = {
+            contest_name: data.contest_name,
+            photoURL: data.photoURL,
+            contest_description: data.contest_description,
+            contest_price: data.contest_price,
+            prize_money: data.prize_money,
+            text_instruction: data.text_instruction,
+            tags: data.tags,
+            startDate: startDate,
+            conformation: 'Pending',
+            comment: '',
+            attempt: parseInt(data.attempt),
+            email: user?.email
+        }
         // console.log(infoAdd)
         console.log(data)
         try {
             const { data } = await axios.post(
-              'http://localhost:7000/addcontents',
-              infoAdd
+                'http://localhost:7000/addcontents',
+                infoAdd
             )
             console.log(data)
             console.log('success')
-            
-          } catch (err) {
+
+        } catch (err) {
             console.log(err)
-            
-          }
+
+        }
     }
 
 
@@ -61,14 +61,14 @@ const AddContest = () => {
                                     <label className="label">
                                         <span className="label-text">Contest Name</span>
                                     </label>
-                                    <input type="text" {...register("contest_name", { required: true })} name="contest_name" placeholder="contest_name" className="h-12 p-3 input input-bordered"/>
+                                    <input type="text" {...register("contest_name", { required: true })} name="contest_name" placeholder="contest_name" className="h-12 p-3 input input-bordered" />
                                     {errors.contest_name && <span className="text-red-500">This field is required</span>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Image URL</span>
                                     </label>
-                                    <input type="text" {...register("photoURL", { required: true })} name="photoURL" placeholder="photoURL" className="h-12 p-3 input input-bordered"  />
+                                    <input type="text" {...register("photoURL", { required: true })} name="photoURL" placeholder="photoURL" className="h-12 p-3 input input-bordered" />
                                     {errors.photoURL && <span className="text-red-500">This field is required</span>}
                                 </div>
                                 <div className="form-control">
@@ -108,7 +108,7 @@ const AddContest = () => {
                                         <label className="label">
                                             <span className="label-text">Contest Type/Tags </span>
                                         </label>
-                                        <select {...register("tags", { required: true })}  name="tags" className="h-12 p-3 border-2 border-gray-500 rounded-md input-bordered  " required >
+                                        <select {...register("tags", { required: true })} name="tags" className="h-12 p-3 border-2 border-gray-500 rounded-md input-bordered  " required >
                                             <option value="Movie Review">Movie Review</option>
                                             <option value="Business Idea Concerts">Business Idea Concerts</option>
                                             <option value="Book Review">Book Review</option>
@@ -123,8 +123,15 @@ const AddContest = () => {
                                         <label className="label">
                                             <span className="label-text">Contest Deadline</span>
                                         </label>
-                                        <DatePicker  className="h-12 p-3 input input-bordered " selected={startDate} onChange={(date) => setStartDate(date)} required />
+                                        <DatePicker className="h-12 p-3 input input-bordered " selected={startDate} onChange={(date) => setStartDate(date)} required />
                                     </div>
+                                </div>
+                                <div className="form-control w-full ">
+                                    <label className="label">
+                                        <span className="label-text">Seat To Attempted</span>
+                                    </label>
+                                    <input type="text" {...register("attempt", { required: true })} name="attempt" placeholder="attempt" className="h-12 p-3 input input-bordered" required />
+                                    {errors.attempt && <span className="text-red-500">This field is required</span>}
                                 </div>
 
                                 <div className="form-control mt-6">

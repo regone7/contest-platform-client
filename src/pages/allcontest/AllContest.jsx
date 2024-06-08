@@ -66,7 +66,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -89,7 +89,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -112,7 +112,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -135,7 +135,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -158,7 +158,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -182,7 +182,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -206,7 +206,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>
@@ -230,7 +230,7 @@ const AllContest = () => {
                                             <div className="card-body">
                                                 <div>
                                                     <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p>Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
                                                     <p>Contest Type: {tag.tags}</p>
 
                                                 </div>

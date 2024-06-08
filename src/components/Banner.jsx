@@ -63,7 +63,7 @@ const Banner = () => {
                                 <div className="card-body">
                                     <div>
                                         <h2 className="card-title">{allcontstsrc.contest_name}</h2>
-                                        <p>Attempted: <span className="text-red-500 font-bold">{allcontstsrc.attempt}</span></p>
+                                        <p> Total Attempted: <span className="text-red-500 font-bold">{allcontstsrc.attempt}</span></p>
                                         <p>Contest Type: {allcontstsrc.tags}</p>
 
                                     </div>

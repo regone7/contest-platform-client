@@ -9,7 +9,7 @@ import { useLoaderData } from 'react-router-dom';
 const UpdateContest = () => {
     const loader = useLoaderData()
     // console.log(loader)
-    const{contest_name,photoURL, contest_description,contest_price,prize_money, text_instruction,tags,conformation, email ,comment, attempt, _id}=loader
+    const { contest_name, photoURL, contest_description, contest_price, prize_money, text_instruction, tags, conformation, email, comment, attempt, _id } = loader
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
 
@@ -20,35 +20,35 @@ const UpdateContest = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        
-        const infoAdds={ 
-            contest_name:data.contest_name,
-            photoURL:data.photoURL,
-            contest_description:data.contest_description,
-            contest_price:data.contest_price,
-            prize_money:data.prize_money,
-            text_instruction:data.text_instruction,
-            tags:data.tags,
-            startDate:startDate,
-            conformation:conformation,
-            email:email,
-            comment:comment,
-            attempt:parseInt(attempt)
-         }
+
+        const infoAdds = {
+            contest_name: data.contest_name,
+            photoURL: data.photoURL,
+            contest_description: data.contest_description,
+            contest_price: data.contest_price,
+            prize_money: data.prize_money,
+            text_instruction: data.text_instruction,
+            tags: data.tags,
+            startDate: startDate,
+            conformation: conformation,
+            email: email,
+            comment: comment,
+            attempt: parseInt(attempt)
+        }
         // console.log(infoAdds)
         // console.log(data)
         try {
             const { data } = await axios.put(
-              `http://localhost:7000/updatecontests/${_id}`,
-              infoAdds
+                `http://localhost:7000/updatecontests/${_id}`,
+                infoAdds
             )
             console.log(data)
             console.log('success')
-            
-          } catch (err) {
+
+        } catch (err) {
             console.log(err)
-            
-          }
+
+        }
     }
     return (
         <div>
@@ -78,7 +78,7 @@ const UpdateContest = () => {
                                         <label className="label">
                                             <span className="label-text">Contest Description</span>
                                         </label>
-                                        <textarea defaultValue={ contest_description} {...register("contest_description", { required: true })} name="contest_description" placeholder="contest_description" className=" h-20 p-3 input input-bordered" required ></textarea>
+                                        <textarea defaultValue={contest_description} {...register("contest_description", { required: true })} name="contest_description" placeholder="contest_description" className=" h-20 p-3 input input-bordered" required ></textarea>
                                         {errors.contest_description && <span className="text-red-500">This field is required</span>}
                                     </div>
                                     <div className="flex flex-col md:flex-row gap-3 ">
@@ -101,7 +101,7 @@ const UpdateContest = () => {
                                         <label className="label">
                                             <span className="label-text">Task Submission text instruction</span>
                                         </label>
-                                        <textarea defaultValue={ text_instruction} {...register("text_instruction", { required: true })} name="text_instruction" placeholder="text_instruction" className=" h-32 p-3 input input-bordered" required ></textarea>
+                                        <textarea defaultValue={text_instruction} {...register("text_instruction", { required: true })} name="text_instruction" placeholder="text_instruction" className=" h-32 p-3 input input-bordered" required ></textarea>
                                         {errors.text_instruction && <span className="text-red-500">This field is required</span>}
                                     </div>
 
@@ -126,9 +126,16 @@ const UpdateContest = () => {
                                             <label className="label">
                                                 <span className="label-text">Contest Deadline</span>
                                             </label>
-                                            <DatePicker  className="h-12 p-3 input input-bordered " selected={startDate} onChange={(date) => setStartDate(date)} required />
+                                            <DatePicker className="h-12 p-3 input input-bordered " selected={startDate} onChange={(date) => setStartDate(date)} required />
                                             {/* <input type="date" defaultValue={startDate} {...register("startDate", { required: true })} name="startDate" className="h-12 p-3 input input-bordered " /> */}
                                         </div>
+                                    </div>
+                                    <div className="form-control w-full ">
+                                        <label className="label">
+                                            <span className="label-text">Seat To Attempted</span>
+                                        </label>
+                                        <input type="text" defaultValue={attempt} {...register("attempt", { required: true })} name="attempt" placeholder="attempt" className="h-12 p-3 input input-bordered" required />
+                                        {errors.attempt && <span className="text-red-500">This field is required</span>}
                                     </div>
 
                                     <div className="form-control mt-6">

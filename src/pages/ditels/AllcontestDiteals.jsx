@@ -2,7 +2,7 @@
 import { GiPartyPopper } from 'react-icons/gi';
 import { RiMoneyEuroCircleLine } from 'react-icons/ri';
 import { TbCalendarTime } from 'react-icons/tb';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllcontestDiteals = () => {
     const dtls = useLoaderData()
@@ -49,7 +49,8 @@ const AllcontestDiteals = () => {
 
                     </div>
                     <div>
-                        <button className='btn btn-sm my-7 text-blue-500 '>Registration</button>
+                        
+                        <Link to={`/paymentandapply/${dtls._id}`} ><button className='btn btn-sm my-7 text-blue-500 '>Registration</button></Link>
                     </div>
                 </div>
             </div>
