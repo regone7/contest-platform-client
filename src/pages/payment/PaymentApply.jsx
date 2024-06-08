@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 
 const PaymentApply = () => {
     const loaderp = useLoaderData()
-    console.log(loaderp)
+    // console.log(loaderp)
     const { contest_name, photoURL, contest_description, contest_price, prize_money, text_instruction, tags, conformation, email, comment, attempt,startDate, _id } = loaderp
     const { user } = useContext(AuthContext)
     
@@ -20,23 +20,49 @@ const PaymentApply = () => {
 
     const onSubmit = async (data) => {
 
-        // const infoAddss = {
-        //     attempt: parseInt(data.attempt+1)
-        // }
-        // // console.log(infoAddss)
-        // // console.log(data)
-        // try {
-        //     const { data } = await axios.patch(
-        //         `http://localhost:7000/updatecontestss/${email}`,
-        //         infoAddss
-        //     )
-        //     console.log(data)
-        //     console.log('success')
+        const infoAddss = {
+            attempt: parseInt(data.attempt)
+        }
+        // console.log(infoAddss)
+        // console.log(data)
+        try {
+            const { data } = await axios.patch(
+                `http://localhost:7000/updatecontestss/${contest_name}`,
+                infoAddss
+            )
+            // console.log(data)
+            // console.log('success')
 
-        // } catch (err) {
-        //     console.log(err)
+        } catch (err) {
+            console.log(err)
 
-        // }
+        }
+
+        const infoPayment = {
+            p_number:data.p_number,
+            t_id:data.t_id,
+            p_amount:data.p_amount,
+            contest_answer:data.contest_answer,
+            ur_email:user?.email,
+            ur_name:user?.displayName,
+            ur_photo:user?.photoURL,
+            urattempt_id:_id
+        }
+        // console.log(infoAddss)
+        // console.log(data)
+        try {
+            const { data } = await axios.post(
+                'http://localhost:7000/paymentcontest',
+                infoPayment
+            )
+            console.log(data)
+            console.log('success')
+
+        } catch (err) {
+            console.log(err)
+
+        }
+
     }
     return (
         <div>
@@ -87,8 +113,9 @@ const PaymentApply = () => {
                             {errors.contest_answer && <span className="text-red-500">This field is required</span>}
                         </div>
 
-                        <div className="form-control mt-2">
-                            <input type="checkbox" {...register("attempt")} name="attempt"  />
+                        <div className="form-control mt-5">
+                            <input type="checkbox" {...register("attempt", { required: true })} name="attempt"  />
+                            {errors.attempt && <span className="text-red-500">This checkbox is required</span>}
                         </div>
 
 
