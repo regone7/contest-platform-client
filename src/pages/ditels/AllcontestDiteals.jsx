@@ -9,7 +9,7 @@ const AllcontestDiteals = () => {
     console.log(dtls)
     return (
         <div>
-   
+
             <div >
                 <div className="container flex flex-col items-center px-4 py-12 mx-auto xl:flex-row">
                     <div className="flex justify-center xl:w-1/2">
@@ -31,16 +31,20 @@ const AllcontestDiteals = () => {
                             <p >Prize Money: {dtls.prize_money} </p>
                         </div>
 
-                        <p >Instruction: {dtls.text_instruction} lor </p>
-                        <div className='my-3'>
+                        <p >Instruction: {dtls.text_instruction}  </p>
+                        {/* <div className='my-3'>
                             <div class="flex flex-col sm:-mx-4 sm:flex-row">
                                 <img className="flex-shrink-0 object-cover w-24 h-24 rounded-full sm:mx-4 ring-4 ring-gray-300" ></img>
 
                                 <div className="mt-4 sm:mx-4 sm:mt-0">
-                                    
+
                                     <p className="md:mt-7 text-gray-500 capitalize ">design director</p>
                                 </div>
                             </div>
+                        </div> */}
+                        <div>
+
+                            <Link to={`/paymentandapply/${dtls._id}`} ><button className='btn btn-sm my-7 text-blue-500 '>Registration</button></Link>
                         </div>
                         <div className='flex justify-center items-center gap-1'>
                             <TbCalendarTime />
@@ -48,10 +52,7 @@ const AllcontestDiteals = () => {
                         </div>
 
                     </div>
-                    <div>
-                        
-                        <Link to={`/paymentandapply/${dtls._id}`} ><button className='btn btn-sm my-7 text-blue-500 '>Registration</button></Link>
-                    </div>
+
                 </div>
             </div>
 

@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const PaymentApply = () => {
     const loaderp = useLoaderData()
     // console.log(loaderp)
-    const navigate = useNavigate()
+    
     const { contest_name, photoURL, contest_description, contest_price, prize_money, text_instruction, tags, conformation, email, comment, attempt,startDate, _id } = loaderp
     const { user } = useContext(AuthContext)
     
@@ -48,7 +48,11 @@ const PaymentApply = () => {
             ur_name:user?.displayName,
             ur_photo:user?.photoURL,
             urattempt_id:_id,
-            ur_payment:'Completed Payment'
+            ur_payment:'Completed Payment',
+            contest_description:contest_description,
+            prize_money:prize_money,
+            contest_name:contest_name,
+            win:'Panding'
         }
         // console.log(infoAddss)
         // console.log(data)
@@ -114,7 +118,7 @@ const PaymentApply = () => {
                             <label className="label">
                                 <span className="label-text">Write Contest Answer: Drive or Any Link</span>
                             </label>
-                            <textarea  {...register("contest_answer", { required: true })} name="contest_answer" placeholder="Answer" className=" h-20 p-3 input input-bordered" required ></textarea>
+                            <textarea  {...register("contest_answer", { required: true })} name="contest_answer" placeholder="Answer" className=" h-20 p-3 input input-bordered" ></textarea>
                             {errors.contest_answer && <span className="text-red-500">This field is required</span>}
                         </div>
 

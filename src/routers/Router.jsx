@@ -24,6 +24,7 @@ import CommentAdmin from "../assets/update/CommentAdmin";
 import AllContest from "../pages/allcontest/AllContest";
 import AllcontestDiteals from './../pages/ditels/AllcontestDiteals';
 import PaymentApply from "../pages/payment/PaymentApply";
+import UserList from "../dashboardElement/creatorDashboard/contestwin/UserList";
 
 
   export const router = createBrowserRouter([
@@ -115,6 +116,11 @@ import PaymentApply from "../pages/payment/PaymentApply";
           element: <ContestSubmit></ContestSubmit>,
         },
         {
+          path: "/dashboard/userlist/:id",
+          element: <UserList></UserList>,
+          loader: ({params}) => fetch(`http://localhost:7000/userlistess/${params.id}`)
+        },
+        {
           path: "/dashboard/updatecontest/:id",
           element: <UpdateContest></UpdateContest>,
           loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
@@ -122,7 +128,7 @@ import PaymentApply from "../pages/payment/PaymentApply";
         {
           path: "/dashboard/comment/:id",
           element: <CommentAdmin></CommentAdmin>,
-          loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:7000/userlistes/${params.id}`)
         },
         
       ],
