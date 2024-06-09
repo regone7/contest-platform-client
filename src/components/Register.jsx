@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { IoMdEye } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { AuthContext } from "../provider/AuthProvider";
 import useAxiosPublic from "../hook/useAxiosPublic";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
     // const [error, setError] = useState("");
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false)
     const axiosPublic = useAxiosPublic()
     const { creatUser, updateUserProfile, setLoading } = useContext(AuthContext)
@@ -68,13 +70,16 @@ const Register = () => {
                             role: 'User',
                             blocks: 'Unblock'
                         }
-                        axiosPublic.post('/users',userInfo)
-                         .then(res=>{
-                            if(res.data.insertedId){
-                                console.log("success update")
-                            }
-                         })
-                       
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log("success ")
+                                    toast.success(' Successfuly login')
+                                    navigate(location?.state ? location.state : '/');
+                                    setLoading(false)
+                                }
+                            })
+
 
 
                     })
@@ -160,6 +165,7 @@ const Register = () => {
                 </div>
 
             </div>
+            <Toaster position="top-center" />
         </div>
     );
 };
