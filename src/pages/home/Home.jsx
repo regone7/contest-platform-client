@@ -1,6 +1,8 @@
 import Banner from "../../components/Banner";
 import ContestWinnerCard from "../../components/ContestWinnerCard";
 import Offer from "../../components/Offer";
+import WinnerSlider from "../../components/slider/WinnerSlider";
+
 
 
 const Home = () => {
@@ -20,6 +22,9 @@ const Home = () => {
                 <div >
                     <ContestWinnerCard></ContestWinnerCard>
                 </div>
+            </div>
+            <div className="font-lato">
+                <WinnerSlider></WinnerSlider>
             </div>
         </div>
     );

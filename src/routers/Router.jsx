@@ -25,12 +25,15 @@ import AllContest from "../pages/allcontest/AllContest";
 import AllcontestDiteals from './../pages/ditels/AllcontestDiteals';
 import PaymentApply from "../pages/payment/PaymentApply";
 import UserList from "../dashboardElement/creatorDashboard/contestwin/UserList";
+import Errorpage from "../components/Errorpage";
+import PrivateRoutes from "../privateroute/PrivateRoutes";
 
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<Errorpage></Errorpage>,
       children: [
         {
           path: "/",
@@ -50,12 +53,12 @@ import UserList from "../dashboardElement/creatorDashboard/contestwin/UserList";
         },
         {
           path: "/allcontestditeals/:id",
-          element: <AllcontestDiteals></AllcontestDiteals>,
+          element: <PrivateRoutes><AllcontestDiteals></AllcontestDiteals></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/diteals/${params.id}`)
         },
         {
           path: "/paymentandapply/:id",
-          element: <PaymentApply></PaymentApply>,
+          element: <PrivateRoutes><PaymentApply></PaymentApply></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/diteals/${params.id}`)
         },
       ],
