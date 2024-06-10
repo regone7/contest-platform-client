@@ -1,6 +1,6 @@
 The name of my website Innovate Contest.
 
-Admin username: Admin@gmail.com
+Admin username: admin@gmail.com
 
 password: 123456
 
