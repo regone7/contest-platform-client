@@ -15,7 +15,7 @@ const ChangeBlocks = () => {
 
         try {
             const { data } = await axios.put(
-              `http://localhost:7000/userupds/${_id}`,
+              `https://contest-platform-server-eight.vercel.app/userupds/${_id}`,
               infoRole
             )
             console.log(data)

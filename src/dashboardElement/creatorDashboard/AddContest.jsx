@@ -38,7 +38,7 @@ const AddContest = () => {
         console.log(data)
         try {
             const { data } = await axios.post(
-                'http://localhost:7000/addcontents',
+                'https://contest-platform-server-eight.vercel.app/addcontents',
                 infoAdd
             )
             console.log(data)

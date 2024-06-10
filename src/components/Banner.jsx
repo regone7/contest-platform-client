@@ -28,7 +28,7 @@ const Banner = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:7000/allcontstsearch?search=${search}`)
+        fetch(`https://contest-platform-server-eight.vercel.app/allcontstsearch?search=${search}`)
             .then(res => res.json())
             .then(data => setAllcontstsec(data))
     }, [search])

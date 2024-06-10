@@ -31,7 +31,7 @@ const MyCreatedConts = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:7000/addsubdelete/${_id}`, {
+                fetch(`https://contest-platform-server-eight.vercel.app/addsubdelete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

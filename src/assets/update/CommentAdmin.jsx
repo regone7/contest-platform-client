@@ -14,7 +14,7 @@ const CommentAdmin = () => {
 
         try {
             const { data } = await axios.put(
-              `http://localhost:7000/updatecontests/${_id}`,
+              `https://contest-platform-server-eight.vercel.app/updatecontests/${_id}`,
               infoConfirm
             )
             console.log(data)

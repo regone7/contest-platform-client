@@ -16,7 +16,7 @@ const UserList = () => {
 
         try {
             const { data } = await axios.patch(
-                `http://localhost:7000/userwin/${_id}`,
+                `https://contest-platform-server-eight.vercel.app/userwin/${_id}`,
                 infoWin
             )
             console.log(data)

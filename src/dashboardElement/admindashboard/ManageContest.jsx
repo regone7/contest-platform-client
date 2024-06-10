@@ -30,7 +30,7 @@ const ManageContest = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:7000/contentcrdelete/${_id}`, {
+                fetch(`https://contest-platform-server-eight.vercel.app/contentcrdelete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

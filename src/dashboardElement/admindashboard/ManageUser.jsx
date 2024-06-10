@@ -36,7 +36,7 @@ const ManageUser = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:7000/userdelete/${_id}`, {
+                fetch(`https://contest-platform-server-eight.vercel.app/userdelete/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

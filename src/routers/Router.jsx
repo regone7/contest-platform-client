@@ -58,12 +58,12 @@ import PrivateRoutes from './../privateroute/PrivateRoutes';
         {
           path: "/allcontestditeals/:id",
           element: <PrivateRoutes><AllcontestDiteals></AllcontestDiteals></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/diteals/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/diteals/${params.id}`)
         },
         {
           path: "/paymentandapply/:id",
           element: <PrivateRoutes><PaymentApply></PaymentApply></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/diteals/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/diteals/${params.id}`)
         },
       ],
     },
@@ -94,12 +94,12 @@ import PrivateRoutes from './../privateroute/PrivateRoutes';
         {
           path: "/dashboard/roleud/:id",
           element: <PrivateRoutes><ChangeRole></ChangeRole></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/userRole/${params.id}`)
         },
         {
           path: "/dashboard/blockud/:id",
           element: <PrivateRoutes><ChangeBlocks></ChangeBlocks></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/userRole/${params.id}`)
         },
         {
           path: "/dashboard/ddmanagecontest",
@@ -108,7 +108,7 @@ import PrivateRoutes from './../privateroute/PrivateRoutes';
         {
           path: "/dashboard/conformconst/:id",
           element: <PrivateRoutes><ChangeConform></ChangeConform></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/conformss/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/conformss/${params.id}`)
         },
         {
           path: "/dashboard/addcontest",
@@ -125,17 +125,17 @@ import PrivateRoutes from './../privateroute/PrivateRoutes';
         {
           path: "/dashboard/userlist/:id",
           element: <PrivateRoutes><UserList></UserList></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/userlistess/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/userlistess/${params.id}`)
         },
         {
           path: "/dashboard/updatecontest/:id",
           element: <PrivateRoutes><UpdateContest></UpdateContest></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/updatecontest/${params.id}`)
         },
         {
           path: "/dashboard/comment/:id",
           element: <PrivateRoutes><CommentAdmin></CommentAdmin></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:7000/userlistes/${params.id}`)
+          loader: ({params}) => fetch(`https://contest-platform-server-eight.vercel.app/userlistes/${params.id}`)
         },
         
       ],

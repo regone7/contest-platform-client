@@ -28,7 +28,7 @@ const PaymentApply = () => {
         // console.log(data)
         try {
             const { data } = await axios.patch(
-                `http://localhost:7000/updatecontestss/${contest_name}`,
+                `https://contest-platform-server-eight.vercel.app/updatecontestss/${contest_name}`,
                 infoAddss
             )
             // console.log(data)
@@ -58,7 +58,7 @@ const PaymentApply = () => {
         // console.log(data)
         try {
             const { data } = await axios.post(
-                'http://localhost:7000/paymentcontest',
+                'https://contest-platform-server-eight.vercel.app/paymentcontest',
                 infoPayment
             )
             console.log(data)

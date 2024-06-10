@@ -41,7 +41,7 @@ const UpdateContest = () => {
         // console.log(data)
         try {
             const { data } = await axios.put(
-                `http://localhost:7000/updatecontests/${_id}`,
+                `https://contest-platform-server-eight.vercel.app/updatecontests/${_id}`,
                 infoAdds
             )
             console.log(data)
