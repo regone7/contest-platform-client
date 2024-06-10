@@ -67,7 +67,7 @@ const Banner = () => {
                                         <p>Contest Type: {allcontstsrc.tags}</p>
 
                                     </div>
-                                    <p > Description: {allcontstsrc.text_instruction.slice(0, 50)}...</p>
+                                    <p > Description: {allcontstsrc.contest_description.slice(0, 50)}...</p>
                                     <div className="card-actions justify-end">
 
                                         <Link to={`/allcontestditeals/${allcontstsrc._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
