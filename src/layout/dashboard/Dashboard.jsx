@@ -75,8 +75,8 @@ const Dashboard = () => {
 
 
                         <div className="p-9 ">
-                            <Link to='/' ><li className="text-gray-700 font-bold" > | Home | </li></Link>
-                            <li onClick={handelLogout} className="text-gray-700 font-bold" >| Log Out | </li>
+                            <Link to='/' ><li className="text-gray-700 font-bold" > <button> | Home | </button> </li></Link>
+                            <li onClick={handelLogout} className="text-gray-700 font-bold" ><button > | Log Out | </button></li>
                             {/* <TbHomeSearch /> */}
                         </div>
 

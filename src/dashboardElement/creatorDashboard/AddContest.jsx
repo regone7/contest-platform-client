@@ -133,7 +133,7 @@ const AddContest = () => {
                                 </div>
                                 <div className="form-control w-full ">
                                     <label className="label">
-                                        <span className="label-text"> Attempt Start</span>
+                                        <span className="label-text"> Attempt Write 0 </span>
                                     </label>
                                     <input type="text" {...register("attempt", { required: true })} name="attempt" placeholder="attempt" className="h-12 p-3 input input-bordered" required />
                                     {errors.attempt && <span className="text-red-500">This field is required</span>}

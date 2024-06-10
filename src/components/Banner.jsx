@@ -57,7 +57,7 @@ const Banner = () => {
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-3 gap-3 ">
                     {
-                        allcontstsec?.slice(0, 9).map((allcontstsrc) => (
+                        allcontstsec?.filter(j => j.conformation === 'Confirm' ).slice(0, 9).map((allcontstsrc) => (
                             <div key={allcontstsrc._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                 <figure><img src={allcontstsrc.photoURL} alt="" /></figure>
                                 <div className="card-body">

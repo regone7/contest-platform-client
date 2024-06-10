@@ -60,7 +60,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Movie Review').map(tag => (
+                                    allcontst?.filter(j => j.tags === 'Movie Review' && j.conformation === 'Confirm' ).map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -83,7 +83,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Gaming Review').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Gaming Review' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -106,7 +106,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Book Review').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Book Review' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -129,7 +129,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Business Idea Concerts').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Business Idea Concerts' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -152,31 +152,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Marketing Strategy').map(tag => (
-                                        <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
-                                            <figure><img src={tag.photoURL} alt="" /></figure>
-                                            <div className="card-body">
-                                                <div>
-                                                    <h2 className="card-title">{tag.contest_name}</h2>
-                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
-                                                    <p>Contest Type: {tag.tags}</p>
-
-                                                </div>
-                                                <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
-                                                <div className="card-actions justify-end">
-
-                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </TabPanel>
-                        <TabPanel>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
-                                {
-                                    allcontst.filter(j => j.tags === 'Article Writing').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Marketing Strategy' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -200,7 +176,7 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Digital advertisement Contests').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Article Writing' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">
@@ -224,7 +200,31 @@ const AllContest = () => {
                         <TabPanel>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
                                 {
-                                    allcontst.filter(j => j.tags === 'Image Design Contests').map(tag => (
+                                    allcontst.filter(j => j.tags === 'Digital advertisement Contests' && j.conformation === 'Confirm').map(tag => (
+                                        <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
+                                            <figure><img src={tag.photoURL} alt="" /></figure>
+                                            <div className="card-body">
+                                                <div>
+                                                    <h2 className="card-title">{tag.contest_name}</h2>
+                                                    <p> Total Attempted: <span className="text-red-500 font-bold">{tag.attempt}</span></p>
+                                                    <p>Contest Type: {tag.tags}</p>
+
+                                                </div>
+                                                <p > Description: {tag.text_instruction.slice(0, 50)}...</p>
+                                                <div className="card-actions justify-end">
+
+                                                <Link to={`/allcontestditeals/${tag._id}`} ><button className="btn btn-sm  hover:bg-blue-500 hover:text-white">Details</button></Link>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </TabPanel>
+                        <TabPanel>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-3">
+                                {
+                                    allcontst.filter(j => j.tags === 'Image Design Contests' && j.conformation === 'Confirm').map(tag => (
                                         <div key={tag._id} className="card  bg-base-100 shadow-xl image-full h-[310px] md:h-[270px]">
                                             <figure><img src={tag.photoURL} alt="" /></figure>
                                             <div className="card-body">

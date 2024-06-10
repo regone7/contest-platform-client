@@ -44,17 +44,17 @@ const WinnerSlider = () => {
                     homewin?.filter(j => j.win === 'Winner').map(homewins =>
                         <SwiperSlide key={homewins._id}>
                             <div className='p-9 flex justify-center items-center -mt-12 font-lato'>
-                                <div class="w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg dark:bg-gray-800">
-                                    <div class="flex justify-center -mt-16 md:justify-end">
-                                        <img class="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400" alt="" src={homewins.ur_photo}></img>
+                                <div className="w-full max-w-md px-8 py-4 mt-16 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                                    <div className="flex justify-center -mt-16 md:justify-end">
+                                        <img className="object-cover w-20 h-20 border-2 border-blue-500 rounded-full dark:border-blue-400" alt="" src={homewins.ur_photo}></img>
                                     </div>
 
-                                    <h2 class="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0">{homewins.contest_name}</h2>
+                                    <h2 className="mt-2 text-xl font-semibold text-gray-800 dark:text-white md:mt-0">{homewins.contest_name}</h2>
                                     <p className='text-gray-800 dark:text-white'>Winner name:{homewins.ur_name}</p>
 
-                                    <p class="mt-2 text-sm text-gray-600 dark:text-gray-200">Winner Of our contest. You can also make yourself as a winner by participation on contest. Do not be late , try it Now.  </p>
+                                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-200">Winner Of our contest. You can also make yourself as a winner by participation on contest. Do not be late , try it Now.  </p>
 
-                                    <div class="flex justify-end mt-4">
+                                    <div className="flex justify-end mt-4">
                                         <h1>Prize: <span className='text-orange-400'>{homewins.prize_money}</span> </h1>
                                     </div>
                                 </div>

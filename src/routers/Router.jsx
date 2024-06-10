@@ -26,7 +26,11 @@ import AllcontestDiteals from './../pages/ditels/AllcontestDiteals';
 import PaymentApply from "../pages/payment/PaymentApply";
 import UserList from "../dashboardElement/creatorDashboard/contestwin/UserList";
 import Errorpage from "../components/Errorpage";
-import PrivateRoutes from "../privateroute/PrivateRoutes";
+import PrivateRoutes from './../privateroute/PrivateRoutes';
+
+
+
+
 
 
   export const router = createBrowserRouter([
@@ -73,64 +77,64 @@ import PrivateRoutes from "../privateroute/PrivateRoutes";
         },
         {
           path: "/dashboard/myparticipatecount",
-          element: <MyparticipateContest></MyparticipateContest>,
+          element: <PrivateRoutes><MyparticipateContest></MyparticipateContest></PrivateRoutes>,
         },
         {
           path: "/dashboard/mywincontest",
-          element: <Mywinningcontest></Mywinningcontest>,
+          element: <PrivateRoutes><Mywinningcontest></Mywinningcontest></PrivateRoutes>,
         },
         {
           path: "/dashboard/myprofile",
-          element: <Myprofile></Myprofile>,
+          element: <PrivateRoutes><Myprofile></Myprofile></PrivateRoutes>,
         },
         {
           path: "/dashboard/ddmanageuser",
-          element: <ManageUser></ManageUser>,
+          element: <PrivateRoutes><ManageUser></ManageUser></PrivateRoutes>,
         },
         {
           path: "/dashboard/roleud/:id",
-          element: <ChangeRole></ChangeRole>,
+          element: <PrivateRoutes><ChangeRole></ChangeRole></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
         },
         {
           path: "/dashboard/blockud/:id",
-          element: <ChangeBlocks></ChangeBlocks>,
+          element: <PrivateRoutes><ChangeBlocks></ChangeBlocks></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/userRole/${params.id}`)
         },
         {
           path: "/dashboard/ddmanagecontest",
-          element: <ManageContest></ManageContest>,
+          element: <PrivateRoutes><ManageContest></ManageContest></PrivateRoutes>,
         },
         {
           path: "/dashboard/conformconst/:id",
-          element: <ChangeConform></ChangeConform>,
+          element: <PrivateRoutes><ChangeConform></ChangeConform></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/conformss/${params.id}`)
         },
         {
           path: "/dashboard/addcontest",
-          element: <AddContest></AddContest>,
+          element: <PrivateRoutes><AddContest></AddContest></PrivateRoutes>,
         },
         {
           path: "/dashboard/mycreatedconts",
-          element: <MyCreatedConts></MyCreatedConts>,
+          element: <PrivateRoutes><MyCreatedConts></MyCreatedConts></PrivateRoutes>,
         },
         {
           path: "/dashboard/contestsubmit",
-          element: <ContestSubmit></ContestSubmit>,
+          element: <PrivateRoutes><ContestSubmit></ContestSubmit></PrivateRoutes>,
         },
         {
           path: "/dashboard/userlist/:id",
-          element: <UserList></UserList>,
+          element: <PrivateRoutes><UserList></UserList></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/userlistess/${params.id}`)
         },
         {
           path: "/dashboard/updatecontest/:id",
-          element: <UpdateContest></UpdateContest>,
+          element: <PrivateRoutes><UpdateContest></UpdateContest></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/updatecontest/${params.id}`)
         },
         {
           path: "/dashboard/comment/:id",
-          element: <CommentAdmin></CommentAdmin>,
+          element: <PrivateRoutes><CommentAdmin></CommentAdmin></PrivateRoutes>,
           loader: ({params}) => fetch(`http://localhost:7000/userlistes/${params.id}`)
         },
         

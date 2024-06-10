@@ -41,7 +41,7 @@ const UserList = () => {
 
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Blocks Change</span>
+                                        <span className="label-text">Winner Announce</span>
                                     </label>
                                     <select defaultValue={win} name="win" className="h-12 p-3 input-bordered"  >
                                         <option value="Winner">Winner</option>
