@@ -38,4 +38,4 @@ feature
 
 15.Theme Toggling Button for changing themes from light to dark / dark to light.
 
-16.All contest winner in home page.
+16.Contest winner list in home page.
