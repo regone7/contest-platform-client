@@ -1,8 +1,8 @@
 The name of my website Innovate Contest.
 
-Admin username: admin@gmail.com
+Admin username: admin@gmail.com  password: 123456
 
-password: 123456
+Creator's email  : creator2@gmail.com  password:123456
 
 live site URL:https://contest-creation-platfor-e05ad.web.app
 
